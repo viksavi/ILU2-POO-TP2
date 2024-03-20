@@ -27,6 +27,8 @@ public class BoundaryAfficherMarche {
 				i++;
 				result.append(" ");
 				result.append(infosMarche[i]);
+				i++;
+				result.append("\n");
 			}
 			System.out.println(result.toString());
 		}

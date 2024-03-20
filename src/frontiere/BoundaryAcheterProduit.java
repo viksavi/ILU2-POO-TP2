@@ -40,53 +40,60 @@ public class BoundaryAcheterProduit {
 				if(vendeur == null) {
 					System.out.println("Ce commercant n'existe pas!\n");
 				} else {
-					StringBuilder message3 = new StringBuilder();
-					message3.append(nomAcheteur);
-					message3.append(" se déplace jusqu'à l'étal du vendeur Bonemine\n");
-					message3.append("Bonjour ");
-					message3.append(nomAcheteur);
-					message3.append("\n");
-					message3.append("Combien de ");
-					message3.append(produit);
-					message3.append(" voulez-vous acheter ?");
-					int nbAchat = Clavier.entrerEntier(message3.toString());
-					int nbExist = controlAcheterProduit.acheterProduit(vendeur.getNom(), nbAchat);
-					StringBuilder result = new StringBuilder();
-					if(nbExist == 0) {
-						result.append(nomAcheteur);
-						result.append(" veut acheter ");
-						result.append(nbAchat);
-						result.append(" ");
-						result.append(produit);
-						result.append(", malheureusement il n'y en a plus !");
-					} else if(nbExist == nbAchat) {
-						result.append(nomAcheteur);
-						result.append(" achete ");
-						result.append(nbAchat);
-						result.append(" ");
-						result.append(produit);
-						result.append(" à ");
-						result.append(vendeur.getNom());
-					} else if(nbExist < nbAchat) {
-						result.append(nomAcheteur);
-						result.append(" veut acheter ");
-						result.append(nbAchat);
-						result.append(" ");
-						result.append(produit);
-						result.append(", malheureusemnt ");
-						result.append(vendeur.getNom());
-						result.append(" n'en a plus que ");
-						result.append(nbExist);
-						result.append(". ");
-						result.append(nomAcheteur);
-						result.append(" achète tout le stock de ");
-						result.append(vendeur.getNom());
-						result.append(".");
-					}
-					System.out.println(result.toString());
+					acheterProduit(nomAcheteur, vendeur.getNom(), produit);
 				}
-				
 			}
 		}
+	}
+	
+	public void acheterProduit(String nomAcheteur, String nomVendeur, String produit) {
+		StringBuilder message3 = new StringBuilder();
+		message3.append(nomAcheteur);
+		message3.append(" se déplace jusqu'à l'étal du vendeur Bonemine\n");
+		message3.append("Bonjour ");
+		message3.append(nomAcheteur);
+		message3.append("\n");
+		message3.append("Combien de ");
+		message3.append(produit);
+		message3.append(" voulez-vous acheter ?");
+		int nbAchat = Clavier.entrerEntier(message3.toString());
+		int nbExist = controlAcheterProduit.acheterProduit(nomVendeur, nbAchat);
+		produitExist(nbAchat, nbExist, nomVendeur, nomAcheteur, produit);
+	}
+	
+	public void produitExist(int nbAchat, int nbExist, String nomVendeur, String nomAcheteur, String produit) {
+		StringBuilder result = new StringBuilder();
+		if(nbExist == 0) {
+			result.append(nomAcheteur);
+			result.append(" veut acheter ");
+			result.append(nbAchat);
+			result.append(" ");
+			result.append(produit);
+			result.append(", malheureusement il n'y en a plus !");
+		} else if(nbExist == nbAchat) {
+			result.append(nomAcheteur);
+			result.append(" achete ");
+			result.append(nbAchat);
+			result.append(" ");
+			result.append(produit);
+			result.append(" à ");
+			result.append(nomVendeur);
+		} else if(nbExist < nbAchat) {
+			result.append(nomAcheteur);
+			result.append(" veut acheter ");
+			result.append(nbAchat);
+			result.append(" ");
+			result.append(produit);
+			result.append(", malheureusemnt ");
+			result.append(nomVendeur);
+			result.append(" n'en a plus que ");
+			result.append(nbExist);
+			result.append(". ");
+			result.append(nomAcheteur);
+			result.append(" achète tout le stock de ");
+			result.append(nomVendeur);
+			result.append(".");
+		}
+		System.out.println(result.toString());
 	}
 }

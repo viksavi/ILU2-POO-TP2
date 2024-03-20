@@ -50,8 +50,8 @@ public class BoundaryEmmenager {
 		question.append(nomVisiteur);
 		question.append("\nQuelle est votre force ? ");
 		int forceDruide = Clavier.entrerEntier(question.toString());
-		int effetPotionMax = -1;
-		int effetPotionMin = 0;
+		int effetPotionMax;
+		int effetPotionMin;
 		do {
 			effetPotionMin = Clavier.entrerEntier("Quelle est la force de potion la plus faible que vous produisez ? ");
 			effetPotionMax = Clavier.entrerEntier("Quelle est la force de potion la plus forte que vous produisez ? ");
