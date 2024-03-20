@@ -36,12 +36,6 @@ public class BoundaryAcheterProduit {
 				message2.append(" ?\n");
 				message2.append(controlAcheterProduit.afficherVendeurs(vendeurs));
 				int numEtal = Clavier.entrerEntier(message2.toString());
-				/*try {
-					Gaulois vendeur = controlAcheterProduit.trouverGaulois(vendeurs, numEtal);
-				} catch(IndexOutOfBoundsException e) {
-					e.printStackTrace();
-					System.out.println("Ce commercant n'existe pas!\n");
-				}*/
 				Gaulois vendeur = controlAcheterProduit.trouverGaulois(vendeurs, numEtal);
 				if(vendeur == null) {
 					System.out.println("Ce commercant n'existe pas!\n");
@@ -56,7 +50,7 @@ public class BoundaryAcheterProduit {
 					message3.append(produit);
 					message3.append(" voulez-vous acheter ?");
 					int nbAchat = Clavier.entrerEntier(message3.toString());
-					int nbExist = controlAcheterProduit.acheterProduit(vendeur, nbAchat);
+					int nbExist = controlAcheterProduit.acheterProduit(vendeur.getNom(), nbAchat);
 					StringBuilder result = new StringBuilder();
 					if(nbExist == 0) {
 						result.append(nomAcheteur);

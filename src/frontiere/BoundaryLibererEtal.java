@@ -16,7 +16,7 @@ public class BoundaryLibererEtal {
 		} else {
 			String[] donneesEtal = controlLibererEtal.libererEtal(nomVendeur);
 			boolean etalOccupe = Boolean.getBoolean(donneesEtal[0]);
-			if(!etalOccupe) {
+			if(etalOccupe) {
 				StringBuilder result = new StringBuilder();
 				result.append("Vous avez vendu ");
 				result.append(donneesEtal[4]);
@@ -29,6 +29,8 @@ public class BoundaryLibererEtal {
 				result.append(nomVendeur);
 				result.append(", passez une bonne journée");
 				System.out.println(result.toString());
+			} else {
+				throw new IllegalStateException ("L'étal n'est pas occupé");
 			}
 		}
 	}

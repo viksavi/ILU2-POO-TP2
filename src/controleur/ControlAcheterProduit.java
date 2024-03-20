@@ -32,7 +32,8 @@ public class ControlAcheterProduit {
 		return village.rechercherVendeursProduit(produit);
 	}
 	
-	public int acheterProduit(Gaulois gaulois, int nbAcheter) {
+	public int acheterProduit(String nomGaulois, int nbAcheter) {
+		Gaulois gaulois = village.trouverHabitant(nomGaulois);
 		Etal etal = village.rechercherEtal(gaulois);
 		return etal.acheterProduit(nbAcheter);
 	}

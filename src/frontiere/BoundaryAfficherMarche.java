@@ -1,7 +1,5 @@
 package frontiere;
 
-import javax.naming.spi.DirStateFactory.Result;
-
 import controleur.ControlAfficherMarche;
 
 public class BoundaryAfficherMarche {
@@ -19,7 +17,8 @@ public class BoundaryAfficherMarche {
 			StringBuilder result = new StringBuilder();
 			result.append(nomAcheteur);
 			result.append(", vous trouverez au marché :\n");
-			for(int i = 0; i < infosMarche.length; i++) {
+			int i = 0;
+			while(i < infosMarche.length) {
 				result.append("- ");
 				result.append(infosMarche[i]);
 				i++;
