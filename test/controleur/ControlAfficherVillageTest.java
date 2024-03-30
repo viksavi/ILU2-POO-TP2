@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import personnages.Chef;
+import personnages.Druide;
+import personnages.Gaulois;
 import villagegaulois.Village;
 
 class ControlAfficherVillageTest {
@@ -31,7 +33,12 @@ class ControlAfficherVillageTest {
 	void testDonnerNomsVillageois() {
 		ControlAfficherVillage controlAfficherVillage = new ControlAfficherVillage(village);
 		assertEquals(controlAfficherVillage.donnerNomsVillageois()[0], "Abraracourcix");
-		assertEquals(controlAfficherVillage.donnerNomsVillageois().length, 1);
+		Gaulois bonemine = new Gaulois("Bonemine", 10);
+		village.ajouterHabitant(bonemine);
+		assertEquals(controlAfficherVillage.donnerNomsVillageois()[1], bonemine.getNom());
+		Druide panoramix = new Druide("Panoramix", 10, 1, 5);
+		village.ajouterHabitant(panoramix);
+		assertEquals(controlAfficherVillage.donnerNomsVillageois()[2], "le druide Panoramix");
 	}
 
 	@Test

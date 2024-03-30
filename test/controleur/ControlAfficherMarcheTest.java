@@ -39,6 +39,9 @@ class ControlAfficherMarcheTest {
 		assertEquals(controlAfficherMarche.donnerInfosMarche()[0], bonemine.getNom());
 		assertEquals(controlAfficherMarche.donnerInfosMarche()[1], "5");
 		assertEquals(controlAfficherMarche.donnerInfosMarche()[2], "fleurs");
+		village.partirVendeur(bonemine);
+		String[] arrayVide = new String[0];
+		assertArrayEquals(controlAfficherMarche.donnerInfosMarche(), arrayVide);
 	}
 
 }
